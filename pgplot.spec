@@ -5,8 +5,9 @@ Version:	5.2.0
 Release:	1
 Copyright:	California Institute of Technology
 Group:		Libraries
+Group(fr):	Librairies
 Group(pl):	Biblioteki
-Source:		ftp://astro.caltech.edu/pub/pgplot/pgplot5.2.tar.gz
+Source0:	ftp://astro.caltech.edu/pub/pgplot/%{name}5.2.tar.gz
 Patch0:		pgplot-misc.patch
 Patch1:		pgplot-man.patch
 Patch2:		pgplot-drv.patch
@@ -18,7 +19,8 @@ BuildRequires:	gcc-g77
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Device-independent graphics package for making simple scientific graphs.  
+Device-independent graphics package for making simple scientific
+graphs.
 
 %description -l pl
 Niezale¿ny sprzêtowo pakiet graficzny do tworzenia naukowych wykresów.
@@ -27,6 +29,7 @@ Niezale¿ny sprzêtowo pakiet graficzny do tworzenia naukowych wykresów.
 Summary:	PGPLOT application development files
 Summary(pl):	Pliki do tworzenia aplikacji dla PGPLOT
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -34,12 +37,14 @@ Requires:	%{name} = %{version}
 Libraries and headers for developing applications that use PGPLOT.
 
 %description devel -l pl
-Biblioteki i pliki nag³ówkowe niezbêdne do tworzenia aplikacji dla PGPLOT.
+Biblioteki i pliki nag³ówkowe niezbêdne do tworzenia aplikacji dla
+PGPLOT.
 
 %package demos
-Summary: 	PGPLOT demo applications
+Summary:	PGPLOT demo applications
 Summary(pl):	Aplikacje demonstracyjne PGPLOT
-Group: 		Development/Libraries
+Group:		Development/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -53,6 +58,7 @@ Aplikacje demonstruj±ce wykorzystanie biblioteki PGPLOT.
 Summary:	PGPLOT static libraries
 Summary(pl):	Biblioteki statyczne dla PGPLOT
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
@@ -87,7 +93,7 @@ strip *demo* pgdisp pgxwin_server
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_includedir},%{_bindir},%{_mandir}/man3} \
-	$RPM_BUILD_ROOT/usr/src/examples/%{name}/{cpg,pgm,demos} \
+$RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/{cpg,pgm,demos} \
 	$RPM_BUILD_ROOT%{_libdir}/pgplot
 
 install grfont.dat grexec.f rgb.txt *.inc $RPM_BUILD_ROOT%{_libdir}/pgplot
@@ -99,12 +105,12 @@ install libpgplot.so.*	     $RPM_BUILD_ROOT%{_libdir}
 
 (cd $RPM_BUILD_ROOT%{_libdir}; ln -s libpgplot.so.5.2.0 libpgplot.so)
 
-install cpgdemo	 $RPM_BUILD_ROOT/usr/src/examples/%{name}/cpg
-install pgdemo*  $RPM_BUILD_ROOT/usr/src/examples/%{name}/demos
-install pgmdemo  $RPM_BUILD_ROOT/usr/src/examples/%{name}/pgm
-cp -a cpg/* 	 $RPM_BUILD_ROOT/usr/src/examples/%{name}/cpg
-cp -a examples/* $RPM_BUILD_ROOT/usr/src/examples/%{name}/demos
-cp -a drivers/xmotif/pgmdemo.c $RPM_BUILD_ROOT/usr/src/examples/%{name}/pgm
+install cpgdemo $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/cpg
+install pgdemo* $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/demos
+install pgmdemo $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/pgm
+cp -a cpg/* $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/cpg
+cp -a examples/* $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/demos
+cp -a drivers/xmotif/pgmdemo.c $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/pgm
 
 mv pgdispd/aaaread.me pgdispd/pgdisp.txt
 
@@ -141,8 +147,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/*
 
 %files demos
-%defattr(-,root,root,755)
-/usr/src/examples/%{name}
+%defattr(644,root,root,755)
+%{_prefix}/src/examples/%{name}
 
 %files static
+%defattr(644,root,root,755)
 %attr(644,root,root) %{_libdir}/lib*.a
