@@ -9,6 +9,9 @@ Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
 Source0:	ftp://astro.caltech.edu/pub/pgplot/%{name}5.2.tar.gz
 Patch0:		%{name}-misc.patch
 Patch1:		%{name}-man.patch
