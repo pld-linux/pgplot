@@ -5,7 +5,7 @@ Version:	5.2.0
 Release:	2
 License:	California Institute of Technology
 Group:		Libraries
-Source0:	ftp://astro.caltech.edu/pub/pgplot/%{name}5.2.tar.gz
+Source0:	ftp://ftp.astro.caltech.edu/pub/%{name}/%{name}5.2.tar.gz
 Patch0:		%{name}-misc.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-drv.patch
