@@ -4,7 +4,7 @@ Name:		pgplot
 Version:	5.2.0
 Release:	1
 %define	foover	%(echo %{version} | tr -d .)
-License:	California Institute of Technology
+License:	free for non-commercial purposes
 Group:		Libraries
 Source0:	ftp://ftp.astro.caltech.edu/pub/%{name}/%{name}%{foover}.tar.gz
 Patch0:		%{name}-misc.patch
