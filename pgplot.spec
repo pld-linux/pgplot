@@ -137,18 +137,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc pgplot-routines.tex pgplot.html
 %attr(755,root,root) %{_libdir}/libpgplot.so
 %{_libdir}/pgplot/*.inc
-%{_includedir}/cpgplot.h
-%{_includedir}/XmPgplot.h
+%{_includedir}/*
+%{_mandir}/man3/*
 
 %files demos
 %defattr(-,root,root,755)
-%dir /usr/src/examples/%{name}
-/usr/src/examples/%{name}/demos
-/usr/src/examples/%{name}/cpg
-/usr/src/examples/%{name}/pgm
+/usr/src/examples/%{name}
 
 %files static
-%defattr(644,root,root,755)
-%{_libdir}/libcpgplot.a
-%{_libdir}/libpgplot.a
-%{_libdir}/libXmPgplot.a
+%attr(644,root,root) %{_libdir}/lib*.a
