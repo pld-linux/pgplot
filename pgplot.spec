@@ -77,16 +77,16 @@ Biblioteki statyczne dla PGPLOT.
 
 %build
 ./makemake . linux g77_elf
-make \
+%{__make} \
 	FFLAGC="-u -Wall -fPIC $RPM_OPT_FLAGS" \
 	CFLAGC="-Wall -fPIC -DPG_PPU $RPM_OPT_FLAGS" 
 
-make cpg \
+%{__make} cpg \
         CFLAGC="-Wall -fPIC -DPG_PPU $RPM_OPT_FLAGS" 
 
-make pgplot.html
-make pgplot-routines.tex
-make clean
+%{__make} pgplot.html
+%{__make} pgplot-routines.tex
+%{__make} clean
 
 strip *demo* pgdisp pgxwin_server
 
