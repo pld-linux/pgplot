@@ -104,9 +104,6 @@ cp -a drivers/xmotif/pgmdemo.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}/pgm
 
 mv -f pgdispd/aaaread.me pgdispd/pgdisp.txt
 
-gzip -9nf drivers.list aaaread.me ver5*.txt pgplot.doc pgdispd/pgdisp.txt \
-	copyright.notice
-
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
@@ -115,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz pgdispd/*.gz
+%doc drivers.list aaaread.me ver5*.txt pgplot.doc pgdispd/pgdisp.txt copyright.notice
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/libpgplot.so.*.*
 
