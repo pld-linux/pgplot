@@ -2,7 +2,7 @@ Summary:	The PGPLOT Graphics Subroutine Library
 Summary(pl):	Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.2
-Release:	1
+Release:	2
 %define	foover	%(echo %{version} | tr -d .)
 License:	free for non-commercial purposes
 Group:		Libraries
@@ -76,10 +76,14 @@ Biblioteki statyczne dla PGPLOT.
 %{__make} \
 	FFLAGC="-u -Wall -fPIC %{rpmcflags}" \
 	CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}" \
-	CFLAGD="-Wall %{rpmcflags}"
+	CFLAGD="-Wall %{rpmcflags}" \
+	SHARED_LIB_LIBS="-L/usr/X11R6/%{_lib} -lX11 -lpng" \
+	LIBS="-L/usr/X11R6/%{_lib} -lX11" \
+	MOTIF_LIBS="-L/usr/X11R6/%{_lib} -lXm -lXt -lX11"
 
 %{__make} cpg \
-        CFLAGD="-Wall %{rpmcflags}"
+        CFLAGD="-Wall %{rpmcflags}" \
+	LIBS="-L/usr/X11R6/%{_lib} -lX11"
 
 %{__make} pgplot.html
 %{__make} pgplot-routines.tex
