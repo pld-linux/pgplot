@@ -2,8 +2,8 @@ Summary:	The PGPLOT Graphics Subroutine Library
 Summary(pl):	Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.0
-Release:	1
-Copyright:	California Institute of Technology
+Release:	2
+License:	California Institute of Technology
 Group:		Libraries
 Group(de):	Libraries
 Group(es):	Bibliotecas
@@ -128,8 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {drivers.list,aaaread.me,ver5*.txt,pgplot.doc}.gz
-%doc {pgdispd/pgdisp.txt,copyright.notice}.gz
+%doc *.gz pgdispd/*.gz
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/libpgplot.so.*.*
 
