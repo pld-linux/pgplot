@@ -15,8 +15,8 @@ Patch3:		%{name}-config.patch
 Patch4:		%{name}-png.patch
 URL:		http://astro.caltech.edu/~tjp/pgplot/
 BuildRequires:	XFree86-devel
-BuildRequires:	motif-devel
 BuildRequires:	gcc-g77
+BuildRequires:	motif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,7 +30,7 @@ Niezale¿ny sprzêtowo pakiet graficzny do tworzenia naukowych wykresów.
 Summary:	PGPLOT application development files
 Summary(pl):	Pliki do tworzenia aplikacji dla PGPLOT
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Libraries and headers for developing applications that use PGPLOT.
@@ -43,7 +43,7 @@ PGPLOT.
 Summary:	PGPLOT demo applications
 Summary(pl):	Aplikacje demonstracyjne PGPLOT
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description demos
 Demonstration applications for PGPLOT.
@@ -55,7 +55,7 @@ Aplikacje demonstruj±ce wykorzystanie biblioteki PGPLOT.
 Summary:	PGPLOT static libraries
 Summary(pl):	Biblioteki statyczne dla PGPLOT
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libraries for PGPLOT.
