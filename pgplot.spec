@@ -14,7 +14,7 @@ Patch2:		pgplot-drv.patch
 Patch3:		pgplot-config.patch
 URL:		http://astro.caltech.edu/~tjp/pgplot/
 BuildRequires:	XFree86-devel
-BuildRequires:	lesstif-devel
+BuildRequires:	motif-devel
 BuildRequires:	gcc-g77
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
