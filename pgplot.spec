@@ -5,13 +5,6 @@ Version:	5.2.0
 Release:	2
 License:	California Institute of Technology
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 Source0:	ftp://astro.caltech.edu/pub/pgplot/%{name}5.2.tar.gz
 Patch0:		%{name}-misc.patch
 Patch1:		%{name}-man.patch
@@ -34,13 +27,6 @@ Niezale©ny sprzЙtowo pakiet graficzny do tworzenia naukowych wykresСw.
 Summary:	PGPLOT application development files
 Summary(pl):	Pliki do tworzenia aplikacji dla PGPLOT
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -54,13 +40,6 @@ PGPLOT.
 Summary:	PGPLOT demo applications
 Summary(pl):	Aplikacje demonstracyjne PGPLOT
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description demos
@@ -73,13 +52,6 @@ Aplikacje demonstruj╠ce wykorzystanie biblioteki PGPLOT.
 Summary:	PGPLOT static libraries
 Summary(pl):	Biblioteki statyczne dla PGPLOT
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
