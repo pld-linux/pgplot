@@ -1,0 +1,10 @@
+--- pgplot/makemake.orig	Wed May  5 00:35:43 1999
++++ pgplot/makemake	Tue Mar 25 12:09:24 2003
+@@ -1025,7 +1025,6 @@
+ grivas.o : $(DRVDIR)/gadef.h
+ grtv00.o : $(DRVDIR)/imdef.h
+ pgxwin.o : $(DRVDIR)/pgxwin.h
+-pndriv.o : ./png.h ./pngconf.h ./zlib.h ./zconf.h
+ 
+ x2driv.o figdisp_comm.o: $(DRVDIR)/commands.h
+ 

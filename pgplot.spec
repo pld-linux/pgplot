@@ -1,7 +1,7 @@
 Summary:	The PGPLOT Graphics Subroutine Library
 Summary(pl):	Biblioteka PGPLOT
 Name:		pgplot
-Version:	5.2.0
+Version:	5.2.2
 Release:	1
 %define	foover	%(echo %{version} | tr -d .)
 License:	free for non-commercial purposes
@@ -11,6 +11,7 @@ Patch0:		%{name}-misc.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-drv.patch
 Patch3:		%{name}-config.patch
+Patch4:		%{name}-png.patch
 URL:		http://astro.caltech.edu/~tjp/pgplot/
 BuildRequires:	XFree86-devel
 BuildRequires:	motif-devel
@@ -62,20 +63,22 @@ Static libraries for PGPLOT.
 Biblioteki statyczne dla PGPLOT.
 
 %prep
-%setup -q -n pgplot
+%setup -q -n %{name}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p0
-%patch3 -p0
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
-./makemake . linux g77_elf
+./makemake . linux g77_gcc
 %{__make} \
 	FFLAGC="-u -Wall -fPIC %{rpmcflags}" \
-	CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}"
+	CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}" \
+	CFLAGD="-Wall %{rpmcflags}"
 
 %{__make} cpg \
-        CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}"
+        CFLAGD="-Wall %{rpmcflags}"
 
 %{__make} pgplot.html
 %{__make} pgplot-routines.tex
@@ -94,7 +97,7 @@ install pgplot.3x	     $RPM_BUILD_ROOT%{_mandir}/man3
 install lib*.a		     $RPM_BUILD_ROOT%{_libdir}
 install libpgplot.so.*	     $RPM_BUILD_ROOT%{_libdir}
 
-(cd $RPM_BUILD_ROOT%{_libdir}; ln -sf libpgplot.so.5.2.0 libpgplot.so)
+(cd $RPM_BUILD_ROOT%{_libdir}; ln -sf libpgplot.so.*.*.* libpgplot.so)
 
 install cpgdemo $RPM_BUILD_ROOT%{_examplesdir}/%{name}/cpg
 install pgdemo* $RPM_BUILD_ROOT%{_examplesdir}/%{name}/demos
@@ -105,11 +108,11 @@ cp -a drivers/xmotif/pgmdemo.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}/pgm
 
 mv -f pgdispd/aaaread.me pgdispd/pgdisp.txt
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -126,6 +129,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc pgplot-routines.tex pgplot.html
 %attr(755,root,root) %{_libdir}/libpgplot.so
+%{_libdir}/libcpgplot.a
+%{_libdir}/libXmPgplot.a
 %{_libdir}/pgplot/*.inc
 %{_includedir}/*
 %{_mandir}/man3/*
@@ -136,4 +141,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_libdir}/lib*.a
+%{_libdir}/libpgplot.a
