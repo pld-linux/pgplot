@@ -7,6 +7,7 @@ Release:	1
 License:	free for non-commercial purposes
 Group:		Libraries
 Source0:	ftp://ftp.astro.caltech.edu/pub/%{name}/%{name}%{foover}.tar.gz
+# Source0-md5:	e8a6e8d0d5ef9d1709dfb567724525ae
 Patch0:		%{name}-misc.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-drv.patch
