@@ -5,13 +5,15 @@ Version:	5.2.0
 Release:	1
 Copyright:	California Institute of Technology
 Group:		Libraries
+Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://astro.caltech.edu/pub/pgplot/%{name}5.2.tar.gz
-Patch0:		pgplot-misc.patch
-Patch1:		pgplot-man.patch
-Patch2:		pgplot-drv.patch
-Patch3:		pgplot-config.patch
+Patch0:		%{name}-misc.patch
+Patch1:		%{name}-man.patch
+Patch2:		%{name}-drv.patch
+Patch3:		%{name}-config.patch
 URL:		http://astro.caltech.edu/~tjp/pgplot/
 BuildRequires:	XFree86-devel
 BuildRequires:	motif-devel
@@ -29,6 +31,7 @@ Niezale¿ny sprzêtowo pakiet graficzny do tworzenia naukowych wykresów.
 Summary:	PGPLOT application development files
 Summary(pl):	Pliki do tworzenia aplikacji dla PGPLOT
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -44,6 +47,7 @@ PGPLOT.
 Summary:	PGPLOT demo applications
 Summary(pl):	Aplikacje demonstracyjne PGPLOT
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -58,6 +62,7 @@ Aplikacje demonstruj±ce wykorzystanie biblioteki PGPLOT.
 Summary:	PGPLOT static libraries
 Summary(pl):	Biblioteki statyczne dla PGPLOT
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -78,22 +83,20 @@ Biblioteki statyczne dla PGPLOT.
 %build
 ./makemake . linux g77_elf
 %{__make} \
-	FFLAGC="-u -Wall -fPIC $RPM_OPT_FLAGS" \
-	CFLAGC="-Wall -fPIC -DPG_PPU $RPM_OPT_FLAGS" 
+	FFLAGC="-u -Wall -fPIC %{rpmcflags}" \
+	CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}" 
 
 %{__make} cpg \
-        CFLAGC="-Wall -fPIC -DPG_PPU $RPM_OPT_FLAGS" 
+        CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}" 
 
 %{__make} pgplot.html
 %{__make} pgplot-routines.tex
 %{__make} clean
 
-strip *demo* pgdisp pgxwin_server
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_includedir},%{_bindir},%{_mandir}/man3} \
-$RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/{cpg,pgm,demos} \
+	$RPM_BUILD_ROOT%{_examplesdir}/%{name}/{cpg,pgm,demos} \
 	$RPM_BUILD_ROOT%{_libdir}/pgplot
 
 install grfont.dat grexec.f rgb.txt *.inc $RPM_BUILD_ROOT%{_libdir}/pgplot
@@ -103,21 +106,18 @@ install pgplot.3x	     $RPM_BUILD_ROOT%{_mandir}/man3
 install lib*.a		     $RPM_BUILD_ROOT%{_libdir}
 install libpgplot.so.*	     $RPM_BUILD_ROOT%{_libdir}
 
-(cd $RPM_BUILD_ROOT%{_libdir}; ln -s libpgplot.so.5.2.0 libpgplot.so)
+(cd $RPM_BUILD_ROOT%{_libdir}; ln -sf libpgplot.so.5.2.0 libpgplot.so)
 
-install cpgdemo $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/cpg
-install pgdemo* $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/demos
-install pgmdemo $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/pgm
-cp -a cpg/* $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/cpg
-cp -a examples/* $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/demos
-cp -a drivers/xmotif/pgmdemo.c $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/pgm
+install cpgdemo $RPM_BUILD_ROOT%{_examplesdir}/%{name}/cpg
+install pgdemo* $RPM_BUILD_ROOT%{_examplesdir}/%{name}/demos
+install pgmdemo $RPM_BUILD_ROOT%{_examplesdir}/%{name}/pgm
+cp -a cpg/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}/cpg
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}/demos
+cp -a drivers/xmotif/pgmdemo.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}/pgm
 
-mv pgdispd/aaaread.me pgdispd/pgdisp.txt
+mv -f pgdispd/aaaread.me pgdispd/pgdisp.txt
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/* \
-	drivers.list aaaread.me	ver5*.txt pgplot.doc pgdispd/pgdisp.txt \
+gzip -9nf drivers.list aaaread.me ver5*.txt pgplot.doc pgdispd/pgdisp.txt \
 	copyright.notice
 
 %post	-p /sbin/ldconfig
@@ -148,7 +148,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files demos
 %defattr(644,root,root,755)
-%{_prefix}/src/examples/%{name}
+%{_examplesdir}/%{name}
 
 %files static
 %defattr(644,root,root,755)
