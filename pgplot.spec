@@ -82,7 +82,7 @@ Biblioteki statyczne dla PGPLOT.
 	MOTIF_LIBS="-L/usr/X11R6/%{_lib} -lXm -lXt -lX11"
 
 %{__make} cpg \
-        CFLAGD="-Wall %{rpmcflags}" \
+	CFLAGD="-Wall %{rpmcflags}" \
 	LIBS="-L/usr/X11R6/%{_lib} -lX11"
 
 %{__make} pgplot.html
@@ -95,12 +95,12 @@ install -d $RPM_BUILD_ROOT{%{_includedir},%{_bindir},%{_mandir}/man3} \
 	$RPM_BUILD_ROOT%{_examplesdir}/%{name}/{cpg,pgm,demos} \
 	$RPM_BUILD_ROOT%{_libdir}/pgplot
 
-install grfont.dat grexec.f rgb.txt *.inc $RPM_BUILD_ROOT%{_libdir}/pgplot
-install pgdisp pgxwin_server $RPM_BUILD_ROOT%{_bindir}
-install cpgplot.h XmPgplot.h $RPM_BUILD_ROOT%{_includedir}
-install pgplot.3x	     $RPM_BUILD_ROOT%{_mandir}/man3
-install lib*.a		     $RPM_BUILD_ROOT%{_libdir}
-install libpgplot.so.*	     $RPM_BUILD_ROOT%{_libdir}
+install grfont.dat grexec.f rgb.txt *.inc	$RPM_BUILD_ROOT%{_libdir}/pgplot
+install pgdisp pgxwin_server			$RPM_BUILD_ROOT%{_bindir}
+install cpgplot.h XmPgplot.h			$RPM_BUILD_ROOT%{_includedir}
+install pgplot.3x				$RPM_BUILD_ROOT%{_mandir}/man3
+install lib*.a					$RPM_BUILD_ROOT%{_libdir}
+install libpgplot.so.*				$RPM_BUILD_ROOT%{_libdir}
 
 (cd $RPM_BUILD_ROOT%{_libdir}; ln -sf libpgplot.so.*.*.* libpgplot.so)
 
