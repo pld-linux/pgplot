@@ -71,10 +71,10 @@ Biblioteki statyczne dla PGPLOT.
 ./makemake . linux g77_elf
 %{__make} \
 	FFLAGC="-u -Wall -fPIC %{rpmcflags}" \
-	CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}" 
+	CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}"
 
 %{__make} cpg \
-        CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}" 
+        CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}"
 
 %{__make} pgplot.html
 %{__make} pgplot-routines.tex
