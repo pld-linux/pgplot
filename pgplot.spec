@@ -2,10 +2,11 @@ Summary:	The PGPLOT Graphics Subroutine Library
 Summary(pl):	Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.0
-Release:	2
+Release:	1
+%define	foover	%(echo %{version} | tr -d .)
 License:	California Institute of Technology
 Group:		Libraries
-Source0:	ftp://ftp.astro.caltech.edu/pub/%{name}/%{name}5.2.tar.gz
+Source0:	ftp://ftp.astro.caltech.edu/pub/%{name}/%{name}%{foover}.tar.gz
 Patch0:		%{name}-misc.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-drv.patch
