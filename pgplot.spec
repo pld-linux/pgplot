@@ -15,7 +15,7 @@ URL:		http://astro.caltech.edu/~tjp/pgplot/
 BuildRequires:	XFree86-devel
 BuildRequires:	lesstif-devel
 BuildRequires:	gcc-g77
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Device-independent graphics package for making simple scientific graphs.  
