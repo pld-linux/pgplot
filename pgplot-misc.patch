@@ -1,0 +1,27 @@
+--- pgplot.orig/src/grgfil.f
++++ pgplot/src/grgfil.f
+@@ -26,7 +26,7 @@
+ C  2-Dec-1994 - new routine [TJP].
+ C-----------------------------------------------------------------------
+       CHARACTER*(*) DEFDIR, DEFFNT, DEFRGB
+-      PARAMETER  (DEFDIR='/usr/local/pgplot/')
++      PARAMETER  (DEFDIR='/usr/lib/pgplot/')
+       PARAMETER  (DEFFNT='grfont.dat')
+       PARAMETER  (DEFRGB='rgb.txt')
+       CHARACTER*255 FF
+--- pgplot.orig/makehtml
++++ pgplot/makehtml
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ $, = ' ';		# set output field separator
+ $\ = "\n";		# set output record separator
+--- pgplot.orig/maketex
++++ pgplot/maketex
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ $, = ' ';		# set output field separator
+ $\ = "\n";		# set output record separator

@@ -1,0 +1,32 @@
+--- pgplot5-5.2.orig/pgplot.3x
++++ pgplot5-5.2/pgplot.3x
+@@ -0,0 +1,29 @@
++.TH PGPLOT 3 "Jan 16 1998"
++.\" NAME should be all caps, SECTION should be 1-8, maybe w/ subsection
++.\" other parms are allowed: see man(7), man(1)
++.SH NAME
++pgplot \- scientific plotting subroutine library
++.SH SYNOPSIS
++.SH "DESCRIPTION"
++This manual page documents briefly the
++.BR pgplot 
++plotting subroutine library.
++This manual page was written for the Debian GNU/Linux distribution
++because the original program does not have a manual page.
++.PP
++.B pgplot
++is a large collection of plotting routines callable from C, as well as
++FORTRAN (also perl, see below).  Many drivers are included to render the 
++plots on devices.  To use PGPLOT, you must set the environment variable,
++PGPLOT_DIR to "/usr/lib/pgplot".   That is , under csh, type
++setenv PGPLOT_DIR /usr/lib/pgplot .  Under bash, type 
++PGPLOT_DIR="/usr/lib/pgplot";export PGPLOT_DIR
++.SH "SEE ALSO"
++Documentation on the library can be found in the directory,
++.B /usr/doc/pgplot .
++There exists a perl interface to pgplot, pgperl, also available for Debian.
++Extensive documentation can be found at
++
++.B http://astro.caltech.edu/~tjp/pgplot/
++.SH AUTHOR
++This manual page was written by John Lapeyre <lapeyre@homey.physics.arizona.edu>.
