@@ -1,5 +1,5 @@
 Summary:	The PGPLOT Graphics Subroutine Library
-Summary(pl):	Biblioteka PGPLOT
+Summary(pl.UTF-8):   Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.2
 Release:	2
@@ -23,44 +23,44 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Device-independent graphics package for making simple scientific
 graphs.
 
-%description -l pl
-Niezale¿ny sprzêtowo pakiet graficzny do tworzenia naukowych wykresów.
+%description -l pl.UTF-8
+NiezaleÅ¼ny sprzÄ™towo pakiet graficzny do tworzenia naukowych wykresÃ³w.
 
 %package devel
 Summary:	PGPLOT application development files
-Summary(pl):	Pliki do tworzenia aplikacji dla PGPLOT
+Summary(pl.UTF-8):   Pliki do tworzenia aplikacji dla PGPLOT
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Libraries and headers for developing applications that use PGPLOT.
 
-%description devel -l pl
-Biblioteki i pliki nag³ówkowe niezbêdne do tworzenia aplikacji dla
+%description devel -l pl.UTF-8
+Biblioteki i pliki nagÅ‚Ã³wkowe niezbÄ™dne do tworzenia aplikacji dla
 PGPLOT.
 
 %package demos
 Summary:	PGPLOT demo applications
-Summary(pl):	Aplikacje demonstracyjne PGPLOT
+Summary(pl.UTF-8):   Aplikacje demonstracyjne PGPLOT
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description demos
 Demonstration applications for PGPLOT.
 
-%description demos -l pl
-Aplikacje demonstruj±ce wykorzystanie biblioteki PGPLOT.
+%description demos -l pl.UTF-8
+Aplikacje demonstrujÄ…ce wykorzystanie biblioteki PGPLOT.
 
 %package static
 Summary:	PGPLOT static libraries
-Summary(pl):	Biblioteki statyczne dla PGPLOT
+Summary(pl.UTF-8):   Biblioteki statyczne dla PGPLOT
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libraries for PGPLOT.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne dla PGPLOT.
 
 %prep
