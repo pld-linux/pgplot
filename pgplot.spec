@@ -1,5 +1,5 @@
 Summary:	The PGPLOT Graphics Subroutine Library
-Summary(pl.UTF-8):   Biblioteka PGPLOT
+Summary(pl.UTF-8):	Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.2
 Release:	2
@@ -28,7 +28,7 @@ Niezależny sprzętowo pakiet graficzny do tworzenia naukowych wykresów.
 
 %package devel
 Summary:	PGPLOT application development files
-Summary(pl.UTF-8):   Pliki do tworzenia aplikacji dla PGPLOT
+Summary(pl.UTF-8):	Pliki do tworzenia aplikacji dla PGPLOT
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -41,7 +41,7 @@ PGPLOT.
 
 %package demos
 Summary:	PGPLOT demo applications
-Summary(pl.UTF-8):   Aplikacje demonstracyjne PGPLOT
+Summary(pl.UTF-8):	Aplikacje demonstracyjne PGPLOT
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -53,7 +53,7 @@ Aplikacje demonstrujące wykorzystanie biblioteki PGPLOT.
 
 %package static
 Summary:	PGPLOT static libraries
-Summary(pl.UTF-8):   Biblioteki statyczne dla PGPLOT
+Summary(pl.UTF-8):	Biblioteki statyczne dla PGPLOT
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
