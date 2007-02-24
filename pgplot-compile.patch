@@ -1,0 +1,11 @@
+--- pgplot/pgdispd/proccom.c.orig	2007-02-10 19:10:52.000000000 +0000
++++ pgplot/pgdispd/proccom.c	2007-02-10 19:10:58.000000000 +0000
+@@ -163,8 +163,6 @@
+ 	void drawline();	/* draw a line in the bitmap window */
+ 	Pixmap XCreatePixmap();
+ 
+-	char *malloc();
+-
+ 	if (!len & savedshorts)
+ 	{ /* an incomplete command was sent! */
+ 		savedshorts=0;
