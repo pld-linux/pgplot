@@ -15,7 +15,7 @@ Patch3:		%{name}-config.patch
 Patch4:		%{name}-png.patch
 URL:		http://astro.caltech.edu/~tjp/pgplot/
 BuildRequires:	XFree86-devel
-BuildRequires:	gcc-g77
+BuildRequires:	gcc-fortran
 BuildRequires:	motif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -74,6 +74,7 @@ Biblioteki statyczne dla PGPLOT.
 %build
 ./makemake . linux g77_gcc
 %{__make} \
+	FCOMPL=gfortran \
 	FFLAGC="-u -Wall -fPIC %{rpmcflags}" \
 	CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}" \
 	CFLAGD="-Wall %{rpmcflags}" \
