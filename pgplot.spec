@@ -13,6 +13,7 @@ Patch1:		%{name}-man.patch
 Patch2:		%{name}-drv.patch
 Patch3:		%{name}-config.patch
 Patch4:		%{name}-png.patch
+Patch5:		%{name}-compile.patch
 URL:		http://astro.caltech.edu/~tjp/pgplot/
 BuildRequires:	XFree86-devel
 BuildRequires:	gcc-fortran
@@ -70,11 +71,13 @@ Biblioteki statyczne dla PGPLOT.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 ./makemake . linux g77_gcc
 %{__make} \
 	FCOMPL=gfortran \
+	SHARED_LD="gfortran -shared -o libpgplot.so.5.2.2 -Wl,-soname,libpgplot.so.5 -f2c" \
 	FFLAGC="-u -Wall -fPIC %{rpmcflags}" \
 	CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}" \
 	CFLAGD="-Wall %{rpmcflags}" \
@@ -83,6 +86,7 @@ Biblioteki statyczne dla PGPLOT.
 	MOTIF_LIBS="-L/usr/X11R6/%{_lib} -lXm -lXt -lX11"
 
 %{__make} cpg \
+	FCOMPL=gfortran \
 	CFLAGD="-Wall %{rpmcflags}" \
 	LIBS="-L/usr/X11R6/%{_lib} -lX11"
 
