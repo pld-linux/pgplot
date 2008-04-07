@@ -2,7 +2,7 @@ Summary:	The PGPLOT Graphics Subroutine Library
 Summary(pl.UTF-8):	Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.2
-Release:	2
+Release:	3
 %define	foover	%(echo %{version} | tr -d .)
 License:	free for non-commercial purposes
 Group:		Libraries
@@ -15,7 +15,13 @@ Patch3:		%{name}-config.patch
 Patch4:		%{name}-png.patch
 Patch5:		%{name}-compile.patch
 URL:		http://astro.caltech.edu/~tjp/pgplot/
-BuildRequires:	XFree86-devel
+BuildRequires:	libxcb-devel
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXau-devel
+BuildRequires:	xorg-lib-libXaw-devel
+BuildRequires:	xorg-lib-libXdmcp-devel
+BuildRequires:	xorg-lib-libXt-devel
+BuildRequires:	xorg-proto-xproto-devel
 BuildRequires:	gcc-fortran
 BuildRequires:	motif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
