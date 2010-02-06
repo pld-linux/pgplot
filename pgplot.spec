@@ -81,7 +81,7 @@ Biblioteki statyczne dla PGPLOT.
 
 %build
 ./makemake . linux g77_gcc
-%{__make} \
+%{__make} -j1 \
 	FCOMPL=gfortran \
 	SHARED_LD="gfortran -shared -o libpgplot.so.5.2.2 -Wl,-soname,libpgplot.so.5 -f2c" \
 	FFLAGC="-u -Wall -fPIC %{rpmcflags}" \
