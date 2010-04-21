@@ -2,7 +2,7 @@ Summary:	The PGPLOT Graphics Subroutine Library
 Summary(pl.UTF-8):	Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.2
-Release:	5
+Release:	6
 %define	foover	%(echo %{version} | tr -d .)
 License:	free for non-commercial purposes
 Group:		Libraries
