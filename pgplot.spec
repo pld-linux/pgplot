@@ -2,7 +2,7 @@ Summary:	The PGPLOT Graphics Subroutine Library
 Summary(pl.UTF-8):	Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.2
-Release:	8
+Release:	9
 %define	foover	%(echo %{version} | tr -d .)
 License:	free for non-commercial purposes
 Group:		Libraries
@@ -14,6 +14,7 @@ Patch2:		%{name}-drv.patch
 Patch3:		%{name}-config.patch
 Patch4:		%{name}-png.patch
 Patch5:		%{name}-compile.patch
+Patch6:		%{name}-libpng15.patch
 URL:		http://astro.caltech.edu/~tjp/pgplot/
 BuildRequires:	libxcb-devel
 BuildRequires:	xorg-lib-libX11-devel
@@ -78,6 +79,7 @@ Biblioteki statyczne dla PGPLOT.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 ./makemake . linux g77_gcc
