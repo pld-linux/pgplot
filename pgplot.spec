@@ -2,7 +2,7 @@ Summary:	The PGPLOT Graphics Subroutine Library
 Summary(pl.UTF-8):	Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.2
-Release:	10
+Release:	11
 %define	foover	%(echo %{version} | tr -d .)
 License:	free for non-commercial purposes
 Group:		Libraries
@@ -85,7 +85,7 @@ Biblioteki statyczne dla PGPLOT.
 ./makemake . linux g77_gcc
 %{__make} -j1 \
 	FCOMPL=gfortran \
-	SHARED_LD="gfortran -shared -o libpgplot.so.5.2.2 -Wl,-soname,libpgplot.so.5 -f2c" \
+	SHARED_LD="gfortran -shared -o libpgplot.so.5.2.2 -Wl,-soname,libpgplot.so.5" \
 	FFLAGC="-u -Wall -fPIC %{rpmcflags}" \
 	CFLAGC="-Wall -fPIC -DPG_PPU %{rpmcflags}" \
 	CFLAGD="-Wall %{rpmcflags}" \
