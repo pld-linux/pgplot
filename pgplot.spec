@@ -2,7 +2,7 @@ Summary:	The PGPLOT Graphics Subroutine Library
 Summary(pl.UTF-8):	Biblioteka PGPLOT
 Name:		pgplot
 Version:	5.2.2
-Release:	11
+Release:	12
 %define	foover	%(echo %{version} | tr -d .)
 License:	free for non-commercial purposes
 Group:		Libraries
@@ -115,7 +115,7 @@ install pgplot.3x				$RPM_BUILD_ROOT%{_mandir}/man3
 install lib*.a					$RPM_BUILD_ROOT%{_libdir}
 install libpgplot.so.*				$RPM_BUILD_ROOT%{_libdir}
 
-(cd $RPM_BUILD_ROOT%{_libdir}; ln -sf libpgplot.so.*.*.* libpgplot.so)
+(cd $RPM_BUILD_ROOT%{_libdir}; ln -sf libpgplot.so.*.*.* libpgplot.so; ln -sf libpgplot.so.*.*.* libpgplot.so.5)
 
 install cpgdemo $RPM_BUILD_ROOT%{_examplesdir}/%{name}/cpg
 install pgdemo* $RPM_BUILD_ROOT%{_examplesdir}/%{name}/demos
@@ -137,6 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc drivers.list aaaread.me ver5*.txt pgplot.doc pgdispd/pgdisp.txt copyright.notice
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/libpgplot.so.*.*
+%attr(755,root,root) %ghost %{_libdir}/libpgplot.so.5
 
 %dir %{_libdir}/pgplot
 %{_libdir}/pgplot/grexec.f
