@@ -15,7 +15,7 @@ Patch3:		%{name}-config.patch
 Patch4:		%{name}-png.patch
 Patch5:		%{name}-compile.patch
 Patch6:		%{name}-libpng15.patch
-URL:		https://www.astro.caltech.edu/~tjp/pgplot/
+URL:		https://sites.astro.caltech.edu/~tjp/pgplot/
 BuildRequires:	libxcb-devel
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXau-devel
@@ -124,7 +124,7 @@ cp -a cpg/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}/cpg
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}/demos
 cp -a drivers/xmotif/pgmdemo.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}/pgm
 
-mv -f pgdispd/aaaread.me pgdispd/pgdisp.txt
+%{__mv} pgdispd/aaaread.me pgdispd/pgdisp.txt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -135,8 +135,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc drivers.list aaaread.me ver5*.txt pgplot.doc pgdispd/pgdisp.txt copyright.notice
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/libpgplot.so.*.*
+%attr(755,root,root) %{_bindir}/pgdisp
+%attr(755,root,root) %{_bindir}/pgxwin_server
+%attr(755,root,root) %{_libdir}/libpgplot.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libpgplot.so.5
 
 %dir %{_libdir}/pgplot
@@ -151,8 +152,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libcpgplot.a
 %{_libdir}/libXmPgplot.a
 %{_libdir}/pgplot/*.inc
-%{_includedir}/*
-%{_mandir}/man3/*
+%{_includedir}/XmPgplot.h
+%{_includedir}/cpgplot.h
+%{_mandir}/man3/pgplot.3*
 
 %files demos
 %defattr(644,root,root,755)
